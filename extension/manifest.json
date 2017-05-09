@@ -1,13 +1,13 @@
 {
-  "name": "Key Socket Media Keys",
-  "version": "0.7.1",
+  "name": "Web Page Media Keys",
+  "version": "0.8.3",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
   },
   "description": "Control your favorite web-based music player with your keyboard's media keys",
-  "homepage_url": "https://github.com/borismus/keysocket",
+  "homepage_url": "https://github.com/feedbee/keysocket",
   "permissions": ["tabs", "contextMenus"],
   "manifest_version": 2,
   "commands": {
@@ -19,7 +19,7 @@
       "description": "Play Previous Track",
       "global":true
     },
-      "play-pause": {
+    "play-pause": {
         "suggested_key": {
           "default": "MediaPlayPause",
           "mac": "MediaPlayPause"
@@ -27,7 +27,7 @@
         "description": "Play/Pause Active Audio",
         "global":true
     },
-      "next": {
+    "next": {
         "suggested_key": {
           "default": "MediaNextTrack",
           "mac": "MediaNextTrack"
@@ -35,7 +35,7 @@
         "description": "Play Next Track",
         "global":true
     },
-      "stop": {
+    "stop": {
         "suggested_key": {
           "default": "MediaStop",
           "mac": "MediaStop"
@@ -51,10 +51,11 @@
     "persistent": true
   },
   "page_action": {
-    "default_title" : "Key Socket Media Keys extension",
+    "default_title" : "Web Page Media Keys extension",
     "default_icon": {
-      "19": "icons/icon19.png",
-      "38": "icons/icon38.png"
+      "16": "icons/icon16.png",
+      "24": "icons/icon24.png",
+      "32": "icons/icon32.png"
     }
   },
   "content_scripts": [
@@ -79,7 +80,7 @@
       "js": ["shared.js","keysocket-grooveshark.js"]
     },
     {
-      "matches": ["https://www.amazon.com/gp/dmusic/cloudplayer/web*"],
+      "matches": ["https://www.amazon.com/gp/dmusic/cloudplayer/*", "https://www.amazon.de/gp/dmusic/cloudplayer/*"],
       "js": ["shared.js","keysocket-amazon-cloud-player.js"]
     },
     {
@@ -220,8 +221,12 @@
       "js": ["shared.js", "keysocket-pocketcasts.js"]
     },
     {
-      "matches": ["*://zvooq.ru/*"],
+      "matches": ["*://zvooq.com/*"],
       "js": ["shared.js", "keysocket-zvooq.js"]
+    },
+    {
+      "matches": ["*://*.myzuka.fm/*"],
+      "js": ["shared.js", "keysocket-myzukafm.js"]
     },
     {
       "matches": ["*://*.bandcamp.com/*"],
@@ -230,6 +235,22 @@
     {
       "matches": ["*://*/*.mp3", "*://*/*.mp3?*"],
       "js": ["shared.js", "keysocket-builtin-player.js"]
+    },
+    {
+      "matches": ["*://8tracks.com/*"],
+      "js": ["shared.js", "keysocket-eighttracks.js"]
+    },
+    {
+      "matches": ["*://pleer.com/*"],
+      "js": ["shared.js", "keysocket-pleer-com.js"]
+    },
+    {
+      "matches": ["*://*.netflix.com/watch/*"],
+      "js": ["shared.js", "keysocket-netflix.js"]
+    },
+    {
+      "matches": ["*://*.vimeo.com/*"],
+      "js": ["shared.js", "keysocket-vimeo.js"]
     }
   ]
 }

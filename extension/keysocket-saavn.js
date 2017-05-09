@@ -16,5 +16,6 @@ function onKeyPress(key) {
                 simulateClick(playbutton);
         }
     }
-
 }
+
+pluginLoaded('saavn');

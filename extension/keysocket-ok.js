@@ -11,3 +11,5 @@ function onKeyPress(key) {
         simulateClick(document.querySelector(playTarget));
     }
 }
+
+pluginLoaded('ok');

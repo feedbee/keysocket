@@ -14,4 +14,4 @@ function onKeyPress(key) {
     }
 }
 
-console.log('keysocket: Loading Gmusic extension');
+pluginLoaded('Gmusic');

@@ -16,3 +16,5 @@ function onKeyPress(key) {
         simulateClick(backButton);
     }
 }
+
+pluginLoaded('t61');

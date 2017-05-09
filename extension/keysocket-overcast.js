@@ -8,3 +8,5 @@ function onKeyPress(key) {
         }
     }
 }
+
+pluginLoaded('overcast');

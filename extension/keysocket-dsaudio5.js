@@ -11,4 +11,4 @@ function onKeyPress(key) {
     }
 }
 
-console.log('keysocket: Loading Synology extension');
+pluginLoaded('Synology');

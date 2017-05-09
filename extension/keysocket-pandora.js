@@ -16,3 +16,5 @@ function onKeyPress(key) {
         simulateClick(stopButton);
     }
 }
+
+pluginLoaded('pandoraow');

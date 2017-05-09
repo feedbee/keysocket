@@ -14,3 +14,5 @@ function onKeyPress(key) {
             simulateClick(pausebutton);
     }
 }
+
+pluginLoaded('gaana');

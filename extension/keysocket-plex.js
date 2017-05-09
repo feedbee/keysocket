@@ -24,3 +24,5 @@ function onKeyPress(key) {
         simulateClick(stopButton);
     }
 }
+
+pluginLoaded('plex');

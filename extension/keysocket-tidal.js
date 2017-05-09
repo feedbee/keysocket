@@ -19,3 +19,5 @@ function onKeyPress(key) {
 function isVisible(el) {
     return el.offsetParent != null;
 }
+
+pluginLoaded('tidal');

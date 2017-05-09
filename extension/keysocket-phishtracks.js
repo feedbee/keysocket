@@ -11,4 +11,4 @@ function onKeyPress(key) {
     }
 }
 
-console.log('keysocket: Loading Phishtracks extension');
+pluginLoaded('Phishtracks');

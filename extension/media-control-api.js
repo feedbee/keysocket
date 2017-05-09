@@ -27,7 +27,7 @@ document.addEventListener("MediaControlStateChanged", function () {
 // Unregister tab before move to another URI
 window.onunload = function() {
     chrome.runtime.sendMessage({command: "unregisterTab"});
-}
+};
 
 // Initial tab registration by meta tag
 registerOrUnregisterPage();

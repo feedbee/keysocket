@@ -30,3 +30,5 @@ function onKeyPress(key) {
         }
     }
 }
+
+pluginLoaded('livestream');

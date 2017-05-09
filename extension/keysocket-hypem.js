@@ -7,3 +7,5 @@ function onKeyPress(key) {
         simulateClick(document.querySelector('#playerPrev'));
     }
 }
+
+pluginLoaded('hypem');

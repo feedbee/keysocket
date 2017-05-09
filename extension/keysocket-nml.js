@@ -3,7 +3,7 @@ function onKeyPress(key) {
         var nextButton = document.querySelector('#ctrl-next');
         simulateClick(nextButton);
     } else if (key === PLAY) {
-        var isPlaying = document.querySelector('#ctrl-play').style.display == 'none';
+        var isPlaying = document.querySelector('#ctrl-play').style.display === 'none';
         var playPauseButton = null;
         if (isPlaying) {
             playPauseButton = document.querySelector('#ctrl-pause');
@@ -16,3 +16,5 @@ function onKeyPress(key) {
         simulateClick(prevButton);
     }
 }
+
+pluginLoaded('nml');

@@ -8,3 +8,5 @@ function onKeyPress(key) {
         simulateClick(playPauseButton);
     }
 }
+
+pluginLoaded('jango');

@@ -29,3 +29,5 @@ function onKeyPress(key) {
         clickMany(playTarget);
     }
 }
+
+pluginLoaded('vkontakte');

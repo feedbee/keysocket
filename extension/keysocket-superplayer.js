@@ -8,4 +8,4 @@ function onKeyPress(key) {
     }
 }
 
-console.log('keysocket: Loading Superplayer extension');
+pluginLoaded('Superplayer');

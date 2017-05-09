@@ -35,3 +35,5 @@ function onKeyPress(key) {
         }
     }
 }
+
+pluginLoaded('deezer');

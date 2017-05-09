@@ -15,3 +15,5 @@ function onKeyPress(key) {
         }
     }
 }
+
+pluginLoaded('twitch');

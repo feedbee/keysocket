@@ -1,13 +1,11 @@
-var playTarget = '.inline_player .playbutton';
-var nextTarget = '.inline_player .nextbutton';
-var prevTarget = '.inline_player .prevbutton';
-
 function onKeyPress(key) {
     if (key === PREV) {
-        simulateClick(document.querySelector(prevTarget));
+        simulateClick(document.querySelector('.inline_player .prevbutton'));
     } else if (key === NEXT) {
-        simulateClick(document.querySelector(nextTarget));
+        simulateClick(document.querySelector('.inline_player .nextbutton'));
     } else if (key === PLAY) {
-        simulateClick(document.querySelector(playTarget));
+        simulateClick(document.querySelector('.inline_player .playbutton'));
     }
 }
+
+pluginLoaded('bandcamp');

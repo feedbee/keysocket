@@ -15,15 +15,16 @@
 
 var registeredTabs = [];
 var registerTab = function (tabId) {
-    if (registeredTabs.indexOf(tabId) == -1) {
+    if (registeredTabs.indexOf(tabId) === -1) {
         registeredTabs.push(tabId);
 
         chrome.pageAction.show(tabId);
         chrome.pageAction.setIcon({
             tabId: tabId,
             path: {
-                '19': 'icons/icon19.png',
-                '38': 'icons/icon38.png'
+                '16': 'icons/icon16.png',
+                '24': 'icons/icon24.png',
+                '32': 'icons/icon32.png'
             }
         });
         chrome.pageAction.setTitle({
@@ -42,8 +43,9 @@ var unregisterTab = function (tabId) {
         chrome.pageAction.setIcon({
             tabId: tabId,
             path: {
-                '19': 'icons/icon19-inactive.png',
-                '38': 'icons/icon38-inactive.png'
+                '16': 'icons/icon16-inactive.png',
+                '24': 'icons/icon24-inactive.png',
+                '32': 'icons/icon32-inactive.png'
             }
         });
         chrome.pageAction.setTitle({
@@ -72,6 +74,10 @@ var updateContextMenu = function(tabId){
     });
 };
 
+/**
+ * React on keyboard shortcuts (see commands in manifest)
+ * and passes command to registered tabs
+ */
 chrome.commands.onCommand.addListener(function (command) {
     console.log('Command:', command);
 
@@ -80,6 +86,9 @@ chrome.commands.onCommand.addListener(function (command) {
     }
 });
 
+/**
+ * React on messages sent from tab to register/unregister it
+ */
 chrome.runtime.onMessage.addListener(
     function (request, sender, sendResponse) {
         console.log('Received tab message: ', request);
@@ -92,8 +101,16 @@ chrome.runtime.onMessage.addListener(
     }
 );
 
-chrome.tabs.onRemoved.addListener(unregisterTab);
+/**
+ * Unregister tab when it closed
+ */
+chrome.tabs.onRemoved.addListener(function (tabId) {
+    unregisterTab(tabId);
+});
 
+/**
+ * Register/unregister tab on extension icon click
+ */
 chrome.pageAction.onClicked.addListener(function (tab) {
     var index = registeredTabs.indexOf(tab.id);
     if (index < 0) {
@@ -103,12 +120,18 @@ chrome.pageAction.onClicked.addListener(function (tab) {
     }
 });
 
+/**
+ * Update extension's context menu on active tab change
+ */
 chrome.tabs.onActivated.addListener(function (evt) {
     updateContextMenu(evt.tabId);
 });
 
-chrome.contextMenus.create({id: "keySocketMediaKeys-group", title: "Key Socket Media Keys"});
-
+/**
+ * Create context menu (for all tabs)
+ * {
+ */
+chrome.contextMenus.create({id: "keySocketMediaKeys-group", title: "Web Page Media Keys"});
 chrome.contextMenus.create({
     parentId: "keySocketMediaKeys-group",
     id: "keySocketMediaKeys-disableThisTab",
@@ -125,13 +148,11 @@ chrome.contextMenus.create({
         registerTab(tab.id);
     }
 });
-
 chrome.contextMenus.create({
     parentId: "keySocketMediaKeys-group",
     id: "keySocketMediaKeys-separator1",
     type: "separator"
 });
-
 chrome.contextMenus.create({
     parentId: "keySocketMediaKeys-group",
     id: "keySocketMediaKeys-disableAllTabs",
@@ -156,13 +177,11 @@ chrome.contextMenus.create({
         });
     }
 });
-
 chrome.contextMenus.create({
     parentId: "keySocketMediaKeys-group",
     id: "keySocketMediaKeys-separator2",
     type: "separator"
 });
-
 chrome.contextMenus.create({
     parentId: "keySocketMediaKeys-group",
     id: "keySocketMediaKeys-disableAllBut",
@@ -179,7 +198,6 @@ chrome.contextMenus.create({
         registerTab(tab.id);
     }
 });
-
 chrome.contextMenus.create({
     parentId: "keySocketMediaKeys-group",
     id: "keySocketMediaKeys-enableAllBut",
@@ -196,3 +214,4 @@ chrome.contextMenus.create({
         });
     }
 });
+// }

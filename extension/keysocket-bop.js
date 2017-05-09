@@ -10,3 +10,5 @@ function onKeyPress(key) {
         simulateClick(backButton);
     }
 }
+
+pluginLoaded('bop');

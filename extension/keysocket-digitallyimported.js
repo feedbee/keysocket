@@ -4,3 +4,5 @@ function onKeyPress(key) {
         simulateClick(playPauseButton);
     }
 }
+
+pluginLoaded('digitallyimported');

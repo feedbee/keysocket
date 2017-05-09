@@ -7,3 +7,5 @@ function onKeyPress(key) {
         simulateClick(playPauseButton);
     }
 }
+
+pluginLoaded('songza');

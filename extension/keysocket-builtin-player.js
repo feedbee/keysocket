@@ -10,3 +10,5 @@ function onKeyPress(key) {
         }
     }
 }
+
+pluginLoaded('builtin player');

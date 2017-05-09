@@ -58,3 +58,5 @@ function onKeyPress(key) {
         }
     }
 }
+
+pluginLoaded('ustream');
