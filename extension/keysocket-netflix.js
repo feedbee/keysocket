@@ -1,6 +1,6 @@
 function onKeyPress(key) {
     if (key === NEXT) {
-        var nextButtonEpisode = document.querySelector('div.player-next-episode');
+        var nextButtonEpisode = document.querySelector('.button-nfplayerNextEpisode');
         simulateClick(nextButtonEpisode);
     } else if (key === PREV) {
         var prevButtonEpisode = null;
@@ -13,14 +13,11 @@ function onKeyPress(key) {
             }
         }
     } else if (key === PLAY) {
-        playPauseButton = document.querySelector('.player-play-pause');
+        playPauseButton = document.querySelector('.button-nfplayerPlay, .button-nfplayerPause');
         simulateClick(playPauseButton);
     } else if (key === STOP) {
-        var isPlaying = document.querySelector('div.player-play-pause.pause');
-        if (isPlaying) {
-            var playPauseButton = document.querySelector('.player-play-pause');
+            var playPauseButton = document.querySelector('.button-nfplayerPause');
             simulateClick(playPauseButton);
-        }
     }
 }
 
