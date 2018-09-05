@@ -70,7 +70,7 @@
       "js": ["shared.js","keysocket-twentytwotracks.js"]
     },
     {
-      "matches": ["https://music.amazon.com/*", "https://music.amazon.de/*"],
+      "matches": ["https://music.amazon.com/*", "https://music.amazon.de/*", "https://music.amazon.in/*"],
       "js": ["shared.js", "keysocket-amazon-cloud-player.js"]
     },
     {
