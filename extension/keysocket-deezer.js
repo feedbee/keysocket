@@ -16,7 +16,7 @@ function onKeyPress(key) {
             var backButton = document.getElementById('player_control_prev');
             simulateClick(backButton);
         }
-    } else { // new deezer style
+    } else if (document.getElementsByClassName('control-play')) { // new deezer style
         if (key === NEXT) {
             var nextButton = document.getElementsByClassName('control-next')[0];
             simulateClick(nextButton);
@@ -32,7 +32,18 @@ function onKeyPress(key) {
         } else if (key === PREV) {
             var backButton = document.getElementsByClassName('control-prev')[0];
             simulateClick(backButton);
-        }
+        }  
+    } else { // even newer deezer style
+        if (key === NEXT) {
+            var nextButton = document.getElementsByClassName('svg-icon-group-btn')[2];
+            simulateClick(nextButton);
+        } else if (key === PLAY) {
+            var playPauseButton = document.getElementsByClassName('svg-icon-group-btn')[1];
+            simulateClick(playPauseButton);
+        } else if (key === PREV) {
+            var backButton = document.getElementsByClassName('svg-icon-group-btn')[0];
+            simulateClick(backButton);
+        }  
     }
 }
 
